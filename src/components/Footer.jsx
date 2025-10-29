@@ -49,10 +49,10 @@ const Footer = () => {
 
         <div className='flex flex-col gap-2 text-white/60'>
           <h3 className="text-white font-semibold">Socials</h3>
-          <a href="https://github.com/harshitpanwar1327/" target='_blank' className='hover:text-white relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-4'>Github</a>
-          <a href="https://www.linkedin.com/in/harshit-panwar-98335a264/" target='_blank' className='hover:text-white relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-7'>Linkedin</a>
-          <a href="mailto:codeweave.site@gmail.com" target='_blank' rel="noopener noreferrer" className='hover:text-white relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-10'>Gmail</a>
-          <a href="https://wa.me/918595994381" target='_blank' rel="noopener noreferrer" className='hover:text-white relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-13'>Whatsapp</a>
+          <a href="mailto:codeweave1327@gmail.com" target='_blank' rel="noopener noreferrer" className='hover:text-white relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-3'>Gmail</a>
+          <a href="https://www.linkedin.com/company/codeweave1327/" target='_blank' rel="noopener noreferrer" className='hover:text-white relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-6'>LinkedIn</a>
+          <a href="https://www.youtube.com/channel/UCdL7XtgIMC64BQ4SpZ8qWDA" target='_blank' rel="noopener noreferrer" className='hover:text-white relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-9'>YouTube</a>
+          <a href="https://www.instagram.com/codeweave1327/" target='_blank' rel="noopener noreferrer" className='hover:text-white relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-12'>Instagram</a>
         </div>
       </div>
     </div>

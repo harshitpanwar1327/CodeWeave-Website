@@ -44,7 +44,7 @@ const Contact = () => {
             Our team is always ready to discuss new opportunities, provide support, and explore how we can work together to bring your ideas to life. Feel free to reach out through the form or the contact details below.</p>
             <hr className='text-white/50'/>
             <p className='flex items-center gap-3'><Phone className='w-5 h-5'/>+91 8595994381, +91 9311201990</p>
-            <p className='flex items-center gap-3'><Mail className='w-5 h-5'/>codeweave.site@gmail.com</p>
+            <p className='flex items-center gap-3'><Mail className='w-5 h-5'/>codeweave1327@gmail.com</p>
           </div>
 
           <form className='bg-neutral-900 p-8 rounded-2xl space-y-4' ref={form} onSubmit={sendEmail}>
