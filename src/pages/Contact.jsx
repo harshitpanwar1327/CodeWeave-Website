@@ -1,4 +1,4 @@
-import React, {useRef} from 'react'
+import {useRef, useState} from 'react'
 import { Phone, Mail } from "lucide-react"
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer.jsx'
@@ -11,25 +11,36 @@ import { Element } from 'react-scroll'
 
 const Contact = () => {
   const form = useRef();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
+    if (isSubmitting) return;
 
-    emailjs
-      .sendForm(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID, form.current, {
-        publicKey: import.meta.env.VITE_PUBLIC_KEY,
-      })
-      .then(
-        () => {
-          console.log('SUCCESS!');
-          toast.success("Email sent successfully");
-          form.current.reset();
-        },
-        (error) => {
-          console.log('FAILED...', error);
-          toast.error("Email not sent!");
-        },
-      );
+    try {
+      setIsSubmitting(true);
+
+      emailjs
+        .sendForm(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID, form.current, {
+          publicKey: import.meta.env.VITE_PUBLIC_KEY,
+        })
+        .then(
+          () => {
+            console.log('SUCCESS!');
+            toast.success("Email sent successfully");
+            form.current.reset();
+            setIsSubmitting(false);
+          },
+          (error) => {
+            console.log('FAILED...', error);
+            toast.error("Email not sent!");
+            setIsSubmitting(false);
+          },
+        );
+    } catch (error) {
+      console.log(error);
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -60,7 +71,7 @@ const Contact = () => {
               </div>
               <div>
                 <label className='block mb-2'>Phone (optional)</label>
-                <input type="tel" placeholder='+123456789' className='w-full p-3 rounded-lg bg-neutral-800 text-white focus:outline-none focus:ring-1 focus:ring-white' name='user_phone' required/>
+                <input type="tel" placeholder='+123456789' className='w-full p-3 rounded-lg bg-neutral-800 text-white focus:outline-none focus:ring-1 focus:ring-white' name='user_phone'/>
               </div>
             </div>
 
@@ -69,8 +80,8 @@ const Contact = () => {
               <textarea placeholder="I need..." rows="3" className="w-full p-3 rounded-lg bg-neutral-800 text-white focus:outline-none focus:ring-1 focus:ring-white" name='message' required/>
             </div>
 
-            <button className="flex items-center justify-between bg-white p-1 rounded-full font-semibold hover:bg-gray-200 group w-full">
-              <p className='text-black px-3 mx-auto'>Submit</p>
+            <button className={`flex items-center justify-between p-1 rounded-full font-semibold w-full ${isSubmitting ? 'bg-gray-400 !cursor-not-allowed' : 'bg-white hover:bg-gray-200 group'}`}>
+              <p className='text-black px-3 mx-auto'>{isSubmitting ? 'Sending...' : 'Submit'}</p>
               <ArrowRight size={40} className='bg-black text-white rounded-full p-2 -rotate-45 group-hover:rotate-0 transition duration-300 ease-in-out'/>
             </button>
           </form>
